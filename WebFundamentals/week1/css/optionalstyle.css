@@ -1,0 +1,50 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.wrapper {
+    width: 850px;
+    margin: 0px auto;
+    background-color: darkgray;
+}
+
+h1 {
+    display: inline;
+}
+
+.heading {
+    padding: 0px 0px 0px 150px;
+}
+
+.heading img {
+    width: 100px;
+    height: 100px;
+}
+
+.row {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.odd, .even {
+    display: inline-block;
+}
+
+.row .odd img{
+    border: 3px solid black;
+    background-color: white;
+    outline: 5px solid blueviolet;
+    width: 120px;
+    height: 120px;
+}
+
+.row .even img{
+    border: 3px solid black;
+    background-color: red;
+    width: 125px;
+    height: 125px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
