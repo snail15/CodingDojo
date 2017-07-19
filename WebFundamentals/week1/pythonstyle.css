@@ -1,5 +1,8 @@
 * { box-sizing: border-box; }
 
+body{
+    font-family: 'Lato', sans-serif;
+}
 .container {
     background-color: #2e5073;
 }
@@ -49,6 +52,60 @@
     padding: 2% 5%;
     margin-left: 8%;
 }
+
+
+.navbar ul {
+    background-color: #4e7ba8;
+    margin-left: 10%;
+    margin-right: 2%;
+    padding-top: 0.7%;
+    padding-bottom: 0.7%;
+}
+.navbar ul li {
+    display: inline;
+    color: whitesmoke;
+    font-size: 2em;
+    margin-left: 2%;
+}
+
+#index {
+    padding-left: 35%;
+    
+}
+
+#index li {
+    text-align: center;
+    color: whitesmoke;
+    text-decoration: underline;
+    line-height: 1.7em;
+    list-style-position: inside;
+    text-indent: -10px;
+}
+
+.intro-col {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.intro {
+    padding-right: 5%;
+}
+
+.catch {
+    color: #f4cf55;
+    font-style: italic;
+}
+
+#explanation {
+    background-color: white;
+}
+
+.instruction {
+    margin-left: 25%;
+    text-align: center;
+    border-top: 3px solid blue;
+}
+
 
 @media only screen and (max-width: 768px) {
     .search-box {
