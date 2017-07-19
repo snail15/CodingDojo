@@ -98,14 +98,53 @@ body{
 
 #explanation {
     background-color: white;
+    padding-top: 1%;
 }
 
-.instruction {
+.instruction-left {
     margin-left: 25%;
     text-align: center;
-    border-top: 3px solid blue;
+    border-top: 3px solid #7da6d1;
 }
 
+.instruction-right {
+    margin-right: 25%;
+    text-align: center;
+    border-top: 3px solid #7da6d1;
+}
+
+.instruction-left ul {
+    list-style-position: inside;
+    margin-right: 10%;
+    color: #8aafd6;
+}
+
+.instruction-right ul {
+    list-style-position: inside;
+    margin-right: 10%;
+    color: #8aafd6;
+}
+
+.footer {
+    margin-left: 25%;
+}
+.footer ul {
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+.footer ul li{
+    display: inline;
+    margin-right: 5%;
+    font-size: 1.1em;
+    color: #8ab3dc;
+}
+.footer p {
+    color: #8ab3dc;
+    font-size: 0.5em;
+    margin-left: 30%;
+    margin-top: 0.5%;
+   
+}
 
 @media only screen and (max-width: 768px) {
     .search-box {
