@@ -170,3 +170,28 @@ h3 {
     border-left: 4px solid #2e85d9;
     border-right: 4px solid #2e85d9;
 }
+
+@media only screen and (max-width: 768px) {
+     .side-col {
+        display: none;
+    }
+
+    #html-img {
+        width: 35%;
+        height: auto;
+        margin-left: 35%;
+    }
+
+    #home {
+        width: 65%;
+    }
+}
+@media only screen and (min-width: 769px) {
+   
+}
+@media only screen and (min-width: 992px) {
+    
+}
+@media only screen and (min-width: 1200px) {
+    
+}
