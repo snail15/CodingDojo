@@ -1,0 +1,158 @@
+* { box-sizing: border-box; }
+
+#logo-img {
+    height: auto;
+    width: 10%;
+}
+
+.logo-col {
+    padding-right: 0;
+}
+
+h1 {
+    display: inline;
+    font-size: 3em;
+    vertical-align: bottom;
+}
+
+h1 span {
+    color: #336599;
+    vertical-align: bottom;
+}
+
+.side-col {
+    padding-left: 1%;
+}
+
+#sub-header {
+    color: whitesmoke;
+    background-color: #3c6c9d;
+    font-size: 2em;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#sub-header span {
+    margin-left: 2%;
+}
+
+.content-row {
+    background: linear-gradient(rgba(230,230,230,0.25), rgba(230,230,230,0));
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.blue-btn,
+.orange-btn {
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.blue-btn { 
+    background-color: #5b89b4;
+    margin-bottom: 2%;
+ }
+.orange-btn { 
+    background-color: #e28e35;
+    margin-top: 0;
+ }
+
+hr {
+    background-color: #b6b6b6;
+    height: 1px;
+    border: 0;
+}
+
+.ad { 
+    background-image: url("wwwimages/ad_background.png");
+    padding: 5%;
+}
+
+#ad-phrase {
+    color: white;
+    text-align: center;
+}
+
+#ninja {
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+}
+
+#home {
+    width: 15%;
+    height: auto;
+}
+
+h6 {
+    display: inline;
+    margin-left: 3%;
+    color: #4471a0;
+    font-size: 0.8em;
+}
+
+.hours {
+    margin-top: 0;
+    margin-bottom: 0%;
+    text-align: right;
+    font-size: 0.7em;
+}
+
+.phonenumber {
+    text-align: right;
+    font-size: 1.5em;
+    color: #4ebedb;
+    font-weight: bold;
+    margin-top: 0;
+    vertical-align: top;
+    line-height: 0em;
+    overflow-wrap: break-word;
+}
+
+.phonenumber span {
+    font-size: 0.5em;
+    color: black;
+    font-weight: normal;
+}
+.phonenumber img {
+    width: 5%;
+    height: auto;
+}
+
+#content-line {
+    margin-bottom:0;
+    margin-top: 0%;
+}
+
+h3 {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    color: #336599;
+}
+
+.article-p {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+.important {
+    color: #4da0b4;
+}
+
+.subject {
+    font-weight: bold;
+}
+
+.main-list {
+    margin-top: 0.5%;
+}
+
+#illustration {
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
