@@ -1,0 +1,49 @@
+* {box-sizing: border-box;}
+
+.container { 
+    background-color: #322127;
+ }
+
+.header-row { 
+    background-color: silver;
+    margin-bottom: 2%;
+}
+
+#catch {
+    text-align: right;
+    margin-top: 4%;
+    background-color: transparent;
+}
+
+#myphoto {
+    width: 100%;
+    height: auto;
+    border: 4px solid #c0c0c0;
+}
+h2 {
+    background-color: #8d8b97;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.card {
+    background-color: #dfd1de;
+}
+
+.card p {
+    margin-top: 0;
+}
+
+.intro-row { margin-bottom: 1%; }
+
+.card :nth-child(1){
+    width: 100%;
+    height: auto;
+}
+
+.tech {
+    width: 12%;
+    height: auto;
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
