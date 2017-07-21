@@ -1,0 +1,8 @@
+* { box-sizing: border-box; }
+
+.container { background-color: #040404; }
+
+#logo-img {
+    width: 100%;
+    height: auto;
+}
