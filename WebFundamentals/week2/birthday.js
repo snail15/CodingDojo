@@ -13,3 +13,5 @@ function countDown (daysRemaining) {
     }
     console.log("HAPPY BIRTHDAY!!!!!!!!!!!!!!!")
 }
+
+countDown(daysUntilMyBirthday);
