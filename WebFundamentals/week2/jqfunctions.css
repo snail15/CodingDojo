@@ -1,5 +1,9 @@
 * { box-sizing: border-box;}
 
+h1 {
+    color: rosybrown;
+}
+
 .container { padding: 2%; }
 
 .btn { 
@@ -8,3 +12,5 @@
 }
 
 .row { border-bottom: 2px solid blueviolet; }
+
+.show-h3 {display: none;}

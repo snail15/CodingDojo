@@ -19,7 +19,14 @@
                 });
 
                 $(".hide-btn").click(function () { 
-                    $(".hide-h2").hide("slow");
+                    $(".hide-h2").hide(700);
+                    
+                });
+                $(".show-btn").click(function () { 
+                    $(".show-h3").show(1100, function () {
+                        $(".show-h3").hide(500);
+
+                    }); 
                     
                 });
             });
@@ -47,13 +54,14 @@
                     <h2 class="hide-h2">Click the button to hide this line</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="show-row row">
                 <div class="col-sm-2">
-                    <button type="button" class="btn btn-primary btn-lg">Click</button>
+                    <button type="button" class="btn btn-primary btn-lg show-btn">Click</button>
                 </div>
                 <div class="col-sm-10">
-                    <h1>Click</h1>
-                    <h2>Click the button to change the color to orange</h2>
+                    <h1>Show</h1>
+                    <h2>Click the button to show additional message</h2>
+                    <h3 class="show-h3">Hello, World!</h3>
                 </div>
             </div>
             <div class="row">
