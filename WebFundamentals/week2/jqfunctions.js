@@ -57,5 +57,26 @@
                     $(".add-class-list li:nth-child(2)").addClass("blue");
                 })
 
+                $(".before-btn").click(function () { 
+                    $(".before-h2").before("<h2>Hey I am the before h2!</h2>");
+                
+                });
+
+                 $(".after-btn").click(function () { 
+                    $(".after-h2").after("<h2>Hey I am the after h2!</h2>");
+                
+                });
+
+                 $(".append-btn").click(function () { 
+                    $(".append-list").append("<li>No 4</li>");
+                
+                });
+
+                 $(".html-btn").click(function () {
+                    var htmlStr = $(".html-h2").html();
+                    $(".html-h2").text(htmlStr);
+                
+                });
+
 
             });
