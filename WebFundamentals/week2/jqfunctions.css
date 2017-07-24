@@ -18,3 +18,7 @@ h1 {
 .hidden-toggle-list { display: none; }
 
 #slide-down-img { display: none; }
+
+#fade-in-img { display: none; }
+
+.blue { background-color: blue; }

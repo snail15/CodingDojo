@@ -37,5 +37,25 @@
                     $("#slide-toggle-img").slideToggle(1500);
                 })
 
+                 $(".fade-in-btn").click(function () {
+                    $("#fade-in-img").fadeIn(1500);
+                })
+
+                 $(".fade-out-btn").click(function () {
+                    $("#fade-out-img").fadeOut(1500);
+                })
+
+                //  $(".add-class-btn").click(function () {
+                //     $(".add-class-list li").addClass(function (index , currentClass){
+                //         currentClass = "blue";
+                //         return currentClass;
+
+                //     });
+                // })
+
+                $(".add-class-btn").click(function () {
+                    $(".add-class-list li:nth-child(2)").addClass("blue");
+                })
+
 
             });
