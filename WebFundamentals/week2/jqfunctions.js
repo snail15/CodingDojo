@@ -78,5 +78,24 @@
                 
                 });
 
+                var checked = $("#attr-check").attr("checked");
+                $(".check-h2").html(checked);
+
+                $(".val-btn").click(function () {
+                    var Str = $(this).text();
+                    $("#val-input").val(Str);
+                });
+
+                $(".text-btn").click(function () {
+                    var Str = $(".text-h2-first").text();
+                    $(".text-h2").text(Str);
+                });
+
+                $(".data-btn").click(function () {
+                    $("div").data("food", {menu: "Pizza", drink: "Coke"});
+                    $(".data-list li:nth-child(1)").text($("div").data("food").menu);
+                    $(".data-list li:nth-child(2)").text($("div").data("food").drink);
+                });
+
 
             });
