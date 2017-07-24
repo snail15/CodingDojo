@@ -14,3 +14,5 @@ h1 {
 .row { border-bottom: 2px solid blueviolet; }
 
 .show-h3 {display: none;}
+
+.hidden-toggle-list { display: none; }
