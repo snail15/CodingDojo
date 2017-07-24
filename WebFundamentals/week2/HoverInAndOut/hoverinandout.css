@@ -1,0 +1,13 @@
+* {box-sizing: border-box;}
+
+html,
+body { font-family: 'Raleway', sans-serif; }
+
+h1 { margin-bottom: 5%;}
+
+img {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    margin-bottom: 10%;
+}
