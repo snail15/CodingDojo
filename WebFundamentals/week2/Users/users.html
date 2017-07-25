@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="users.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway:500" rel="stylesheet">
@@ -27,13 +26,13 @@
                     <hr>
                     <form>
                         <label for="first_name">First Name: </label>
-                        <input type="text" name="first_name" id="first_name" value=""><br>
+                        <input type="text" name="first_name" id="first_name"><br>
                         <label for="last_name">Last Name: </label>
-                        <input type="text" name="last_name" id="last_name" value=""><br>
+                        <input type="text" name="last_name" id="last_name"><br>
                         <label for="email">Email: </label>
-                        <input type="email" name="email" id="email" value=""><br>
+                        <input type="email" name="email" id="email"><br>
                         <label for="contact">Contact No: </label>
-                        <input type="tel" name="contact" id="contact" value=""><br>
+                        <input type="tel" name="contact" id="contact"><br>
                         <br>
                         <button class="btn btn-success submit">Add User</button>
                     </form>
@@ -43,19 +42,29 @@
                 <div class="col-sm-12">
                     <h2>User List</h2>
                     <hr>
-                    <table class="table table-stripped">
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Contact No</th>
-                        </tr>
-                        <tr>
-                            <td>Bill</td>
-                            <td>Gates</td>
-                            <td>asd@asasd.com</td>
-                            <td>123-456-7890</td>
-                        </tr>
+                    <table id="usertable" class="table table-stripped">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Contact No</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bill</td>
+                                <td>Gates</td>
+                                <td>asd@asasd.com</td>
+                                <td>123-456-7890</td>
+                            </tr>
+                            <tr>
+                                <td>Bill</td>
+                                <td>Gates</td>
+                                <td>asd@asasd.com</td>
+                                <td>123-456-7890</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
