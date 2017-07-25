@@ -17,7 +17,10 @@ p {
     text-align: center;
 }
 
-.description-p { margin-top: 20% auto;}
+.description-p { 
+    margin-top: 20% auto;
+    font-style: italic;
+}
 
 @media only screen and (max-width: 768px) {
     .card {

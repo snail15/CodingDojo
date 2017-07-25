@@ -1,4 +1,5 @@
 function attachDescriptionHandler(description, firstName, lastName) {
+    
     var generalCard = true;
 
     $(".card").click(function (){
@@ -26,6 +27,7 @@ $(document).ready(function () {
                                 +"<h3>"+firstName+" "+lastName
                                 +"</h3>"
                                 +"<p>Click here for the description!</p>");
+
         
         attachDescriptionHandler(description, firstName, lastName);
     
