@@ -1,0 +1,37 @@
+* { 
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif; 
+}
+
+h4 { margin-bottom: 5%; }
+
+.card { 
+    border: 1px solid #c1bcbc;
+    margin-left: 15%;
+    margin-bottom: 5%;
+    padding: 5%;
+}
+
+h3,
+p {
+    text-align: center;
+}
+
+.description-p { margin-top: 20% auto;}
+
+@media only screen and (max-width: 768px) {
+    .card {
+       margin-left: 0%;
+       margin-bottom: 0%;
+       margin-top: 5%;
+    }
+}
+@media only screen and (min-width: 769px) {
+    
+}
+@media only screen and (min-width: 992px) {
+    
+}
+@media only screen and (min-width: 1200px) {
+    
+}
