@@ -20,19 +20,19 @@ $(document).ready(function () {
     $("img").click(function (){
 
         var house = $(this).attr("id");
-        var houseName;
+        var queryName;
 
         if (house === "baratheon") {
-            houseName = "House Baratheon of King's Landing";
+            queryName = "House Baratheon of King's Landing";
         } else if (house === "lannister") {
-            houseName = "House Lannister of Casterly Rock";
+            queryName = "House Lannister of Casterly Rock";
         } else if (house === "stark") {
-            houseName = "House Stark of Winterfell";
+            queryName = "House Stark of Winterfell";
         } else if (house === "dragon"){
-            houseName = "House Targaryen of King's Landing";
+            queryName = "House Targaryen of King's Landing";
         }
 
-        $.get("https://www.anapioficeandfire.com/api/houses?name="+ houseName, function(data){
+        $.get("https://www.anapioficeandfire.com/api/houses?name="+ queryName, function(data){
             var name = data[0].name;
             var title = [];
             for(var i = 0; i < data[0].titles.length; i++) {
