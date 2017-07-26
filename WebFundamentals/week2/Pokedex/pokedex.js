@@ -1,9 +1,3 @@
-$(document).ready(function () {
-    for (var i = 1; i <= 151 ; i++) {
-        console.log("<img id='"+i+"' src='http://pokeapi.co/media/img/"+i+".png'"+" alt='pokemon'>")
-        $("#pokemon-pic").append("<img id='"+i+"' src='http://pokeapi.co/media/img/"+i+".png'"+" alt='pokemon'>");
-    }
-
     function displayPokedex(img, types, height, weight, name) {
 
         $(".pokedex-col").html("<div class='pokedex'></div>")
@@ -30,8 +24,15 @@ $(document).ready(function () {
         htmlString += "<h5>Weight</h5>";
         htmlString += "<h6>"+ weight + "</h6>";
 
-        $(".pokedex").html(htmlString);
+        $(".pokedex").hide().html(htmlString).slideDown(1000);
     }
+
+$(document).ready(function () {
+    for (var i = 1; i <= 151 ; i++) {
+        console.log("<img id='"+i+"' src='http://pokeapi.co/media/img/"+i+".png'"+" alt='pokemon'>")
+        $("#pokemon-pic").append("<img id='"+i+"' src='http://pokeapi.co/media/img/"+i+".png'"+" alt='pokemon'>");
+    }
+
     
     $("img").click(function(){
         var pokeId = $(this).attr("id");

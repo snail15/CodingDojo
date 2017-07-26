@@ -1,7 +1,6 @@
 function displayHouseDetail(name, founded, titles, words) {
 
     htmlString = "";
-    htmlString += "<h3>House Detail</h3>"
     htmlString += "<p><span>Name:</span> " + name + "</p>";
     htmlString += "<p><span>Founded:</span> " + founded + "</p>";
     htmlString += "<p><span>Words:</span> " + words + "</p>";
@@ -12,8 +11,7 @@ function displayHouseDetail(name, founded, titles, words) {
         }
         htmlString += titles[i] + ", ";
     }
-    
-    $(".card").html(htmlString);
+    $(".descrip").hide().html(htmlString).slideDown(1000);
 
 }
 $(document).ready(function () {
