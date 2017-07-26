@@ -1,0 +1,17 @@
+* { 
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+html,
+body { background-color: #141414; }
+
+#heading, h3, .card {
+    text-align: center;
+    color: whitesmoke;
+}
+
+h3 { margin-bottom: 2%; }
+
+.detail-row { margin-top: 10%;}
+
+span { color: red; }
