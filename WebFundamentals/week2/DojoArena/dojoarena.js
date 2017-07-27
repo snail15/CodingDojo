@@ -49,7 +49,7 @@ $(document).ready(function () {
     $(".btn").click(function(){
         backgroundFixed = true;
         $(".buttons").slideUp(1000, function(){
-            $("h3").html("<h3>Select Your Ninja!!</h3>");
+            $("h3").text("Select Your Ninja!!").addClass("sub-heading");
             $(".option-row").hide().css("display","").slideDown(1000);       
         });
 
