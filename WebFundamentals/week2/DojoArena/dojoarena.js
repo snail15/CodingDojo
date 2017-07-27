@@ -14,17 +14,17 @@ function displayCharcter(img, player) {
 function attachHandlerForSelection() {
     var imgName;
     var imgName2;
-    $("#p1-ninja").mouseup(function (){
+    $("#p1-ninja").change(function (){
         imgName = $(this).val();
         console.log(imgName);
-        if (imgName !== "Select Your Ninha") {
+        if (imgName !== "Select Your Ninja") {
             displayCharcter(imgName, 1);
         }
     })
-    $("#p2-ninja").mouseup(function (){
+    $("#p2-ninja").change(function (){
         imgName2 = $(this).val();
         console.log(imgName2);
-         if (imgName2 !== "Select Your Ninha") {
+         if (imgName2 !== "Select Your Ninja") {
             displayCharcter(imgName2, 2);
         }
     })
