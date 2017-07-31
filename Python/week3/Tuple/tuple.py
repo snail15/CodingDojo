@@ -7,9 +7,7 @@ my_dict = {
 def makeTuple(dict):
     newArr = []
     for key in dict:
-        tup = ()
-        tup.add(key)
-        tup.add(dict[key])
+        tup = (key, dict[key])
         newArr.append(tup)
     print(newArr)
 
