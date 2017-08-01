@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+.container {padding: 10%;}
+
+.form-box { 
+    border: 1px solid green;
+    padding: 5%;
+}
