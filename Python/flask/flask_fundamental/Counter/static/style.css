@@ -1,0 +1,16 @@
+* { 
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    color: rosybrown;
+}
+
+h1 {
+    margin:15% 25% 1% 45%;
+}
+
+h3,h4 {
+    margin: 0% 25% 1% 45%;
+}
+
+
+
