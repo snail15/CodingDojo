@@ -1,0 +1,26 @@
+* { font-family: "Raleway", sans-serif; }
+
+.box {
+    border: 1px solid gainsboro;
+    margin-top: 10%;
+}
+.box h3,
+.box h4 {
+    text-align: center;
+}
+.box h3 {
+    margin-bottom: 10%;
+    margin-top: 15%;
+}
+
+.btn {
+    margin: 15% 32%;
+}
+
+.textbox {
+    padding: 1%;
+    width: 100%;
+    height: 50%;
+    border: 1px solid gainsboro;
+    overflow-y: scroll;
+}
