@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title> Friends </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="freinds-table">
+                    <h2>Your Friends:</h2>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Friend Since</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for friend in friends %}
+                            <tr>
+                                <th>{{friend["name"]}}</th>
+                                <th>{{friend["age"]}}</th>
+                                <th>{{friend["created_at"]}}</th>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <h2>Add a Freind:</h2>
+                <form action="/add_friend" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Friend's Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="text" class="form-control" id="age" name="age" placeholder="Friend's Age">
+                    </div>
+                    <button type="submit" class="btn btn-default">Make New Friend</button>
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+</body>
+
+</html>
