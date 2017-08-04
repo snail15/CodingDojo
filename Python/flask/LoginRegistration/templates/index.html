@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+      <title>Lgoin Registration</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h2>Register</h2>
+                 {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="/validate" method="POST">
+                    <div class="form-group">
+                        <input type="hidden" name="type" value="registration">
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Your First Name">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Your Last Name">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Password">
+                        <label for="confrim_pass">Confrim Password</label>
+                        <input type="text" class="form-control" id="confirm_pass" name="confirm_pass" placeholder="Confrim Password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Register</button>
+                </form>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h2>Login</h2>
+                <form action="/validate" method="POST">
+                    <div class="form-group">
+                        <input type="hidden" name="type" value="login">
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Your First Name">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Your Last Name">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                </form>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <form action="/logout">
+                    <button type="submit" class="btn btn-warning">Log Out!</button>
+                </form>
+            </div>
+        </div> -->
+    </div>
+    </body>
+</html>
