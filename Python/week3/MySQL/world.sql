@@ -147,3 +147,37 @@ ON countries.id = cities.country_id
 WHERE countries.name = "Mexico" and cities.population > 500000
 ORDER BY cities.population DESC;
 
+SELECT countries.name, languages.language,  languages.percentage
+FROM countries
+LEFT JOIN languages
+ON countries.id = languages.country_id
+WHERE languages.percentage > 89
+ORDER BY languages.percentage DESC;
+
+SELECT name, surface_area, population
+FROM countries
+WHERE surface_area < 501 and population > 100000
+ORDER BY population DESC;
+
+--  What query would you run to get countries with only Constitutional Monarchy with a capital greater than 200 and a life expectancy greater than 75 years?-- 
+ 
+ SELECT name, capital, life_expectancy
+ FROM countries
+ WHERE government_form = "Constitutional Monarchy"  and capital > 200 and life_expectancy > 75
+ ORDER BY capital DESC;
+ 
+--  What query would you run to get all the cities of Argentina inside the Buenos Aires district and have the population greater than 500, 000? The query should return the Country Name, City Name, District and Population. 
+
+SELECT countries.name, cities.name, cities.district, cities.population
+FROM countries
+LEFT JOIN cities
+ON countries.id = cities.country_id
+WHERE cities.district = "Buenos Aires" and cities.population > 500000
+ORDER BY cities.population DESC;
+-- 
+-- What query would you run to summarize the number of countries in each region? The query should display the name of the region and the number of countries. Also, the query should arrange the result by the number of countries in descending order.
+
+SELECT region, COUNT(name) as NumberOfCountries
+FROM countries
+GROUP BY region
+ORDER BY NumberOfCountries DESC;
