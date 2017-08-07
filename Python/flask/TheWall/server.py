@@ -101,9 +101,12 @@ def wall():
     comments = mysql.query_db("SELECT * FROM comments ORDER BY updated_at")
     comment_dict = {}
     for c in comments:
-        comment_dict[c['message_id']] = c['comment']
+        if c['message_id'] not in comment_dict:
+            comment_dict[c['message_id']] = []
+        else:
+            comment_dict[c['message_id']].append(c)
     print(comment_dict) 
-    return render_template("wall.html", messages = messages, comments = comments)
+    return render_template("wall.html", messages = messages, comments = comment_dict)
 
 
 

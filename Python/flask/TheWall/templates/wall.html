@@ -43,23 +43,21 @@
                     <div class="message-box">
                         <p>{{message["message"]}}
                             {% if session["user_id"] == message["user_id"] %}
-                            <a class="shame" href="/delete_post/+{{message['id']}}">Too Embarrassed?</a>
+                            <a class="shame" href="/delete_post/{{message['id']}}">Too Embarrassed?</a>
                             </p>
                             {% endif %}
                         <h4 class="past">Comments:</h4>
-                        {% for comment in comments %}
+                        {% for comment in comments[message["id"]] %}
                             <div class="comment-window">
-                            {% if comment["message_id"] == message["id"] %}
                             <p>{{comment["comment"]}}
                                 {% if comment["user_id"] == session["user_id"] %}
-                                <a class="shame" href="/delete_comment/+{{comment['id']}}">Too Embarrassed?</a>
+                                <a class="shame" href="/delete_comment/{{comment['id']}}">Too Embarrassed?</a>
                                 {% endif %}
-                            {% endif %}
                             </div>
                         {% endfor %}
                     </div>
                     <div class="comment-box">
-                        <form action="/post_comment/+{{message['id']}}" method="POST">
+                        <form action="/post_comment/{{message['id']}}" method="POST">
                             <textarea name="comment" class="form-control" rows="2"></textarea>
                             <button type="submit" class="btn btn-primary comment-btn">Post Comment</button>
                         </form>
