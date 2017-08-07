@@ -99,6 +99,10 @@ def wall():
     
     messages = mysql.query_db("SELECT CONCAT(users.first_name,' ', users.last_name) as name, user_id, message, messages.id FROM users JOIN messages ON users.id = messages.user_id")
     comments = mysql.query_db("SELECT * FROM comments ORDER BY updated_at")
+    comment_dict = {}
+    for c in comments:
+        comment_dict[c['message_id']] = c['comment']
+    print(comment_dict) 
     return render_template("wall.html", messages = messages, comments = comments)
 
 
