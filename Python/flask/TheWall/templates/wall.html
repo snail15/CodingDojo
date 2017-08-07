@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>It's The Wall</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 nav">
+                <h3 class="wall-logo">Sungin's Wall!</h3>
+                {% if session["user_name"] %}
+                    <ul class="wall-menu">
+                        <li>Hi! {{session["user_name"]}}</li>
+                        <li><a href="/logout"><button class="btn btn-warning">Log Out</button></a></li>
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <h3>Post Message:</h3>
+                <form action="/post" method="POST">
+                    <textarea name="message" class="form-control" rows="6"></textarea>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </form>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <h3 class="past">Past Messages:</h3>
+                    {% for message in messages %}
+                        <h4>{{message['name']}} said:</h4>
+                    <div class="message-box">
+                        <p>{{message["message"]}}
+                            {% if session["user_id"] == message["user_id"] %}
+                            <a class="shame" href="/delete_post/+{{message['id']}}">Too Embarrassed?</a>
+                            </p>
+                            {% endif %}
+                        <h4 class="past">Comments:</h4>
+                        {% for comment in comments %}
+                            <div class="comment-window">
+                            {% if comment["message_id"] == message["id"] %}
+                            <p>{{comment["comment"]}}
+                                {% if comment["user_id"] == session["user_id"] %}
+                                <a class="shame" href="/delete_comment/+{{comment['id']}}">Too Embarrassed?</a>
+                                {% endif %}
+                            {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="comment-box">
+                        <form action="/post_comment/+{{message['id']}}" method="POST">
+                            <textarea name="comment" class="form-control" rows="2"></textarea>
+                            <button type="submit" class="btn btn-primary comment-btn">Post Comment</button>
+                        </form>
+                    </div>
+                    {% endfor %}
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</body>
+
+</html>

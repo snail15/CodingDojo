@@ -1,0 +1,71 @@
+* {
+    font-family: "Lato", sans-serif;
+    color: wheat;
+    font-size: 25px;
+
+}
+
+html,body {
+    background-color: #26596A;
+}
+
+.main-logo {
+    font-size: 150%;
+}
+
+.wall-logo {
+    text-align: left;
+    font-size: 130%;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.wall-menu {
+    margin-left: 53%;
+    display: inline;
+}
+
+.wall-menu li {
+    text-decoration: none;
+    display: inline;
+    margin-left: 2%;
+}
+
+.nav {
+    border-bottom: 1px solid white;
+    padding-right: 0;
+}
+
+.btn-primary {
+    margin-top: 2%;
+    margin-left: 95.5%;
+}
+
+.message-box { 
+    margin-bottom: 1%;
+    padding: 1% 1% 0.5% 1%;
+}
+
+.past { margin-bottom: 3%; }
+
+h4 { color: white;}
+
+.message-box p { 
+    font-size: 60%;
+    color: white;
+}
+
+.message-box p a {
+    margin-left: 2%;
+    color: orangered;
+    font-size: 80%;
+    text-align: right;
+}
+
+.comment-btn {
+    margin-left: 89%;
+}
+
+.comment-window {
+    margin-left: 5%;
+}
