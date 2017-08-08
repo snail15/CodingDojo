@@ -1,0 +1,27 @@
+* {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: orangered;
+    font-size: 85px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 110%;
+}
+
+.time,
+.attempt {
+    font-size: 50%;
+}
+
+.random-box{
+    border: 1px solid gray;
+    width: 400px;
+    height: 100px;
+    margin-left: 28.5%;
+    padding-top: 2%;
+}
+
+.randomword {
+    font-size: 45%;
+}
