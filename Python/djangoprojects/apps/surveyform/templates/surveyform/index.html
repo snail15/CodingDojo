@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'surveyform/css/style.css'%}'">
+
+    <title>Survey</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h1>Survey</h1>
+                <div class="survey-box">
+                    <form action="process" method="post">
+                        {% csrf_token %} 
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Dojo Location</label>
+                            <select name="location" class="form-control">
+                                <option value="Mountain View">Mountain View</option>
+                                <option value="Chicago">Chicago</option>
+                                <option value="New York">New York</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="language">Favorite Language</label>
+                            <select name="language" class="form-control">
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                                <option value="New York">New York</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea rows="3" name="comment"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+</body>
+
+</html>
