@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.timedisplay',
     'apps.blogs',
     'apps.surveys',
     'apps.users',
