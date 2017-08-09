@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'apps.dojo_ninjas',
+    'apps.book_authors',
     'apps.user_login',
     'apps.surveyform',
     'apps.randomwords',
