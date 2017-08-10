@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^semi_restful/', include('apps.semi_restful.urls', namespace="restful")),
     url(r'^randomwords/', include('apps.randomwords.urls')),
     url(r'^surveyform/', include('apps.surveyform.urls')),
     url(r'^timedisplay/', include('apps.timedisplay.urls')),
