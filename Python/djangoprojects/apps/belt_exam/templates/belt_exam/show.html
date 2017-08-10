@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% load static %}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'belt_exam/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+      <title>Your Trip</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2">
+                <a href="{%url 'belt:destroy'%}">Log Out</a>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h3>Hi, {{request.session.user_name}}!</h3>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h4>Your Trips</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Destination</th>
+                            <th>Travel Start Date</th>
+                            <th>Travel End Date</th>
+                            <th>Plan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for trip in trips %}
+                        {% for user in trip.users.all %}
+                        {% if user.id == request.session.user_id%}
+                        <tr>
+                            <td><a href="{%url 'belt:detail' id=trip.id%}">{{trip.destination}}</a></td>
+                            <td>{{trip.start}}</td>
+                            <td>{{trip.end}}</td>
+                            <td>{{trip.plan}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h4>Other Users' Trips</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Destination</th>
+                            <th>Travel Start Date</th>
+                            <th>Travel End Date</th>
+                            <th>Want to Join?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for trip in trips %}
+                        {% for user in trip.users.all %}
+                        {% if user.id != request.session.user_id%}
+                        <tr>
+                            <td>{{user.name}}</td>
+                            <td><a href="{%url 'belt:detail' id=trip.id%}">{{trip.destination}}</a></td>
+                            <td>{{trip.start}}</td>
+                            <td>{{trip.end}}</td>
+                            <td><a href="{%url 'belt:join' id=trip.id%}">Join</a></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <a href="{%url 'belt:add'%}"><button class="btn btn-success">Add Travel Plan!</button></a>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+    </body>
+</html>

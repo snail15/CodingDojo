@@ -18,5 +18,8 @@ def process(request):
 
         return redirect('/surveyform/result')
 
-def result(request):
-    return render(request, 'surveyform/result.html')
+def result(request, id):
+    context = {
+        "id": id
+    }
+    return render(request, 'surveyform/result.html', context)

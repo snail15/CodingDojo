@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <title>Detail</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h3>{{trip.destination}}</h3>
+                <p>Planned by: {{created_user.name}}</p>
+                <p>Plan: {{trip.plan}}</p>
+                <p>From: {{trip.start}}</p>
+                <p>To: {{trip.end}}</p>
+            </div>
+            <div class="col-sm-2">
+                <a href="{%url 'belt:show'%}">Home</a>
+                <a href="{%url 'belt:destroy'%}"> Log Out</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h3>Others who are joining</h3>
+                {% for user in trip.users.all%}
+                {% if user.id != created_user.id %}
+                <p>{{user.name}}</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+    </body>
+</html>
