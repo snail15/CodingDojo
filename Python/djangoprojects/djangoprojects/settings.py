@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.ajax_post',
     'apps.belt_exam',
     'apps.semi_restful',
     'apps.likes_courses',
