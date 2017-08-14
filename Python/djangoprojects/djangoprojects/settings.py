@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.ajax_pagination',
     'apps.ajax_post',
     'apps.belt_exam',
     'apps.semi_restful',
@@ -118,6 +119,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'US/Central'
+
+DATETIME_FORMAT = '%d-%m-%Y %H:%M' 
 
 USE_I18N = True
 

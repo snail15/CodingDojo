@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="{%static 'ajax_pagination/js/pagination.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'ajax_pagination/css/style.css' %}" media="screen" title="no title" charset="utf-8">
+    <title>Ajax Pagination</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Ajax Pagination!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <form action="{%url 'pagination:search'%}" method="post" class='name_search'>
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control name" name='search_name' id="name" placeholder="Search">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form action="{%url 'pagination:search'%}", method="post" class="from_search">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label for="from_date" class="col-sm-2 col-form-label">From</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control from_date" name="from_date" id="from_date">
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row table-row">
+            <div class="col-sm-12">
+                <table class="table table-hover">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>#</th>
+                            <th>id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Registered At</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class='table-body'>
+                        {% for user in users %}
+                        <tr>
+                            <th scope="row">{{user.row}}</th>
+                            <td>{{user.id}}</td>
+                            <td>{{user.first_name}}</td>
+                            <td>{{user.last_name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.registered}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

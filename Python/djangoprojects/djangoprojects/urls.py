@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^semi_restful/', include('apps.semi_restful.urls', namespace='restful')),
+    url(r'^ajax_pagination/', include('apps.ajax_pagination.urls', namespace='pagination')),
     url(r'^ajax_post/', include('apps.ajax_post.urls', namespace='ajax_post')),
     url(r'^belt_exam/', include('apps.belt_exam.urls', namespace='belt')),
     url(r'^randomwords/', include('apps.randomwords.urls')),

@@ -1,0 +1,10 @@
+{% for user in users %}
+<tr>
+    <th scope="row">{{user.row}}</th>
+    <td>{{user.id}}</td>
+    <td>{{user.first_name}}</td>
+    <td>{{user.last_name}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.registered}}</td>
+</tr>
+{% endfor %}
