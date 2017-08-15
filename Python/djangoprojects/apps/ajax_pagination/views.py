@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.core.urlresolvers import reverse
 from .models import *
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import bcrypt
 from datetime import datetime
 from time import strftime, strptime, gmtime
@@ -18,8 +19,17 @@ def index(request):
         user.registered = user.created_at.strftime("%a, %d %b %Y %H:%M")
         user.row = i
         i += 1
+    paginator = Paginator(users, 4)
+    page = request.GET.get('page')
+    try:
+        page_users = paginator.page(page)
+    except PageNotAnInteger:
+        page_users = paginator.page(1)
+    except EmptyPage:
+        page_users = paginator.page(paginator.num_pages)
     context = {
-        'users': users
+        'users': page_users,
+        'page': page
     }
     return render(request, 'ajax_pagination/index.html', context)
 

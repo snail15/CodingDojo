@@ -12,3 +12,12 @@ h1 {
 table {
     margin-top: 5%;
 }
+
+.paginator-col {
+    padding-left: 15%;
+}
+
+.pagination li a,
+.pagination li span {
+    font-size: 50%;
+}

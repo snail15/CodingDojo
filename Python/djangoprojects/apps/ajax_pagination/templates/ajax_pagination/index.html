@@ -78,6 +78,12 @@
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4 paginator-col">
+                {% include 'ajax_pagination/paginator.html' with page=users %}
+            </div>
+        </div>
     </div>
 </body>
 
