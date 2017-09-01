@@ -25,15 +25,15 @@ namespace first_csharp
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
-                    System.Console.WriteLine('FizzBuzz');;
+                    System.Console.WriteLine("FizzBuzz");;
                 }
                 else if (i % 3==0)
                 {
-                    System.Console.WriteLine('Fizz');
+                    System.Console.WriteLine("Fizz");
                 }
                 else if (i % 5 ==0)
                 {
-                    System.Console.WriteLine('Buzz');
+                    System.Console.WriteLine("Buzz");
                 }
 
             }
