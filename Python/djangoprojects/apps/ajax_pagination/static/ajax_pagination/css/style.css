@@ -13,11 +13,17 @@ table {
     margin-top: 5%;
 }
 
-.paginator-col {
-    padding-left: 15%;
+ .paginator-col {
+    padding-left: 0%;
+    padding-right: 0%;
+} 
+
+.pagination {
+    margin-left: 90%;
+    
 }
 
 .pagination li a,
 .pagination li span {
-    font-size: 50%;
+    font-size: 40%;
 }

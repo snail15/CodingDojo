@@ -33,6 +33,11 @@ def index(request):
     }
     return render(request, 'ajax_pagination/index.html', context)
 
+def paginate(request):
+    
+    return redirect('ajax_pagination/' + request.POST['url'])
+
+
 def search_name(request):
     
     if 'from_date' in request.POST:

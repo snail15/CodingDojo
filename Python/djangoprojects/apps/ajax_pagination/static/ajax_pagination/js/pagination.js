@@ -52,4 +52,16 @@ $(document).ready(function () {
            }
        })
    })
+
+  $('.page-link').click(function (){
+      $.ajax({
+          url: 'paginate',
+          method: 'post',
+          data: {'url': $(this).attr('goto')},
+          success: function(serverResponse) {
+              $(document).html(serverResponse)
+          }
+        
+      })
+  })
 });
