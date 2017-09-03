@@ -1,0 +1,11 @@
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\obj\Debug\netcoreapp2.0\crud.csproj.CoreCompileInputs.cache
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\obj\Debug\netcoreapp2.0\crud.AssemblyInfoInputs.cache
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\obj\Debug\netcoreapp2.0\crud.AssemblyInfo.cs
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\bin\Debug\netcoreapp2.0\crud.deps.json
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\bin\Debug\netcoreapp2.0\crud.runtimeconfig.json
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\bin\Debug\netcoreapp2.0\crud.runtimeconfig.dev.json
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\bin\Debug\netcoreapp2.0\crud.dll
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\bin\Debug\netcoreapp2.0\crud.pdb
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\obj\Debug\netcoreapp2.0\crud.dll
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\obj\Debug\netcoreapp2.0\crud.pdb
+C:\Users\Sungin Jung\Desktop\CodingDojo\netCore\crud\obj\Debug\netcoreapp2.0\crud.csprojResolveAssemblyReference.cache
