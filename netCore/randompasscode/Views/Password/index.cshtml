@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>
+      <link rel="stylesheet" href="~/css/style.css">
+      <title>Password Generator</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <h3>Random Password</h3>
+                    <p class= >This is password# <span class="attempt">@ViewBag.Attempt</span></p>
+                    <h4 class="password">@ViewBag.Password</h4>
+                    <button class="btn btn-primary">Generate</button>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/js/index.js"></script>
+    </body>
+</html>
