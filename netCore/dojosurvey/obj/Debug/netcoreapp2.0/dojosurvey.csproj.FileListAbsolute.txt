@@ -1,0 +1,10 @@
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/obj/Debug/netcoreapp2.0/dojosurvey.csproj.CoreCompileInputs.cache
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/obj/Debug/netcoreapp2.0/dojosurvey.AssemblyInfoInputs.cache
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/obj/Debug/netcoreapp2.0/dojosurvey.AssemblyInfo.cs
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/bin/Debug/netcoreapp2.0/dojosurvey.deps.json
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/bin/Debug/netcoreapp2.0/dojosurvey.runtimeconfig.json
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/bin/Debug/netcoreapp2.0/dojosurvey.runtimeconfig.dev.json
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/bin/Debug/netcoreapp2.0/dojosurvey.dll
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/bin/Debug/netcoreapp2.0/dojosurvey.pdb
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/obj/Debug/netcoreapp2.0/dojosurvey.dll
+/Users/sunginjung/Dropbox/Codes/DojoAssignments/netCore/dojosurvey/obj/Debug/netcoreapp2.0/dojosurvey.pdb

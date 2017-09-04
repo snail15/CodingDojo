@@ -51,6 +51,8 @@ namespace cards{
                 cards.RemoveAt(cards.Count-1);
                 return dealtCard;
             }
+
+            
         }
     }
 }
