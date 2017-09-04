@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time Display</title>
+</head>
+<body>
+    @{
+        DateTime CurrentTime = DateTime.Now;
+        DateTimeOffset dateOffset = new DateTimeOffset(CurrentTime, 
+        TimeZoneInfo.Local.GetUtcOffset(CurrentTime));
+        string displayTime = dateOffset.ToString("F");
+    }
+    <p>Current Local Time</p>
+    <p>@displayTime</p>
+</body>
+</html>
