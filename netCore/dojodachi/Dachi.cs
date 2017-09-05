@@ -20,40 +20,58 @@ namespace dojodachi {
             meal = 3;
         }
 
-        public void Feed() {
-            if(failure == random.Next(0,4)){
-                this.meal -= 1;
+        public int Feed() {
+            if(this.meal > 0){
+                if(failure == random.Next(0,4)){
+                    this.meal -= 1;
+                } else {
+                    int gain = random.Next(5, 11);
+                    this.fullness += gain;
+                    this.meal -= 1;
+                    return gain;
+                }
             } else {
-                int gain = random.Next(5, 11);
-                this.fullness += gain;
-                this.meal -= 1;
+                return -1;
+            }
+            return 0;
+        }
+
+        public int Play() {
+            if(this.energy >= 5){
+                if(failure == random.Next(0,4)){
+                    this.energy -= 5;
+                } else {
+                    int gain = random.Next(5, 11);
+                    this.happiness += gain;
+                    this.energy -= 5;
+                    return gain;
+                }
+            } else {
+                return -1;
+            }
+            return 0;
+        }
+
+        public int Work() {
+            if(this.energy >= 5){
+                int gain = random.Next(1, 4);
+                this.energy -= 5;
+                this.meal += gain;
+                return gain;
+            } else {
+                return -1;
             }
         }
 
-        public void Play() {
-            if(failure == random.Next(0,4)){
-                this.energy -= 5;
-            } else {
-                int gain = random.Next(5, 11);
-                this.happiness += gain;
-                this.energy -= 5;
-            }
-        }
-
-        public void Work() {
-            int gain = random.Next(1, 4);
-            this.energy -= 5;
-            this.meal += gain;
-        }
-
-        public void Sleep() {
+        public int Sleep() {
             this.energy += 15;
             this.fullness -= 5;
             this.happiness -= 5;
+            return 15;
         }
 
         public bool CheckWin(){
-            if(this.fullness > 100 && this.energy > 100 && this.happiness >100) {
+            if(this.fullness >= 100 && this.energy >= 100 && this.happiness >= 100) {
                 return true;
             } 
             return false;

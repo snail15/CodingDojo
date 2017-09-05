@@ -2,3 +2,8 @@
     margin-top: 3%;
     margin-right: 15%;
 }
+
+.restart {
+    margin-left: 45%;
+    visibility: hidden;
+}
