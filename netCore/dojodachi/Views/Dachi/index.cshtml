@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>DojoDachi</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <p>Fullness: <span class="fullness">@ViewBag.Fullness</span> Happiness: <span class="happiness">@ViewBag.Happiness</span>  Meals: <span class="meal">@ViewBag.Meals</span> Energy: <span class="energy">@ViewBag.Energy</span></p>
+                <div class="card">
+                    <img class="card-img-top" src="~/img/dachi.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Choose You Action</p>
+                    </div>
+                </div>
+                <button class="feed btn btn-primary">Feed</button>
+                <button class="play btn btn-success">Play</button>
+                <button class="work btn btn-warning">Work</button>
+                <button class="sleep btn btn-dark">Sleep</button>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="~/js/dachi.js"></script>
+</body>
+
+</html>
