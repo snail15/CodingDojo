@@ -21,7 +21,7 @@ namespace pokeinfo.Controllers
         [Route("pokemon/{pokeid}")]
         public IActionResult QueryPoke(int pokeid)
         {
-            var PokeInfo = new Dictionary<string, object>();
+            var PokeInfo = new Pokemon();
             WebRequest.GetPokemonDataAsync(pokeid, ApiResponse =>
                 {
                     PokeInfo = ApiResponse;

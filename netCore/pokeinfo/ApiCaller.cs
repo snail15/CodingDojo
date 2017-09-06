@@ -11,7 +11,7 @@ namespace pokeinfo
     {
         // The second parameter is a function that returns a Dictionary of string keys to object values.
         // If an API returned an array as its top level collection the parameter type would be "Action>"
-        public static async Task GetPokemonDataAsync(int PokeId, Action<Dictionary<string, object>> Callback)
+        public static async Task GetPokemonDataAsync(int PokeId, Action<Pokemon> Callback)
         {
             // Create a temporary HttpClient connection.
             using (var Client = new HttpClient())
@@ -39,9 +39,9 @@ namespace pokeinfo
                     List<string> Types = new List<string>();
                     List<string> Sprites = new List<string>();
 
-                    foreach(KeyValuePair<string, string> entry in SpriteList) {
-                        if(entry.Value != null){
-                            Sprites.Add(entry.Value);
+                    foreach(KeyValuePair<string, Newtonsoft.Json.Linq.JToken> entry in SpriteList) {
+                        if(entry.Value.ToString() != ""){
+                            Sprites.Add(entry.Value.ToString());
                         }
                     }
 

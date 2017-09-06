@@ -1,3 +1,12 @@
 <ul>
     <li>@ViewBag.Pokemon.name</li>
+    <li>@ViewBag.Pokemon.height</li>
+    <li>@ViewBag.Pokemon.weight</li>
+    @foreach(var type in @ViewBag.Pokemon.types){
+        <li>@type</li>
+    }
+    @foreach(var img in @ViewBag.Pokemon.sprites){
+    <li><img src="@img" alt="sprite"></li>
+    }
+
 </ul>
