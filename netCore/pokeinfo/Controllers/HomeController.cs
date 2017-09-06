@@ -13,7 +13,22 @@ namespace pokeinfo.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            
             return View();
+        }
+
+        [HttpGet]
+        [Route("pokemon/{pokeid}")]
+        public IActionResult QueryPoke(int pokeid)
+        {
+            var PokeInfo = new Dictionary<string, object>();
+            WebRequest.GetPokemonDataAsync(pokeid, ApiResponse =>
+                {
+                    PokeInfo = ApiResponse;
+                }
+            ).Wait();
+
+            // Other code
         }
     }
 }
