@@ -28,6 +28,9 @@ namespace pokeinfo.Controllers
                 }
             ).Wait();
 
+            ViewBag.Pokemon = PokeInfo;
+            return View();
+
             // Other code
         }
     }
