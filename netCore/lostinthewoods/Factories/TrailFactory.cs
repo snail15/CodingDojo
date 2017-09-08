@@ -12,7 +12,7 @@ namespace lostinthewoods.Factories
         private string connectionString;
         public TrailFactory()
         {
-            connectionString = "server=localhost;userid=root;password=root;port=3306;database=mydb;SslMode=None";
+            connectionString = "server=localhost;userid=root;password=root;port=3306;database=trailDB;SslMode=None";
         }
         internal IDbConnection Connection
         {
@@ -21,10 +21,19 @@ namespace lostinthewoods.Factories
             }
         }
 
-         public void Add(Trail item)
+        public void Add(Trail item)
         {
             using (IDbConnection dbConnection = Connection) {
-                string query =  "INSERT INTO users (user_name, email, password, created_at, updated_at) VALUES (@Name, @Email, @Password, NOW(), NOW())";
+                string query =  "INSERT INTO trails (name, description, longtitude, latitude, elevationgain, length) VALUES (@Name, @Description, @Longtitude, @Latitude, @ElevationGain, @Length)";
+                dbConnection.Open();
+                dbConnection.Execute(query, item);
+            }
+        }
+
+        public void Delete(Trail item) {
+
+            using (IDbConnection dbConnection = Connection) {
+                string query =  "DELETE FROM trails WHERE name= @Name and description= @Description and length= @Length";
                 dbConnection.Open();
                 dbConnection.Execute(query, item);
             }
@@ -34,15 +43,15 @@ namespace lostinthewoods.Factories
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Trail>("SELECT * FROM users");
+                return dbConnection.Query<Trail>("SELECT * FROM trails");
             }
         }
-        public User FindByID(int id)
+        public Trail FindByID(int id)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Trail>("SELECT * FROM users WHERE id = @Id", new { Id = id }).FirstOrDefault();
+                return dbConnection.Query<Trail>("SELECT * FROM trails WHERE id = @Id", new { Id = id }).FirstOrDefault();
             }
         }
     }

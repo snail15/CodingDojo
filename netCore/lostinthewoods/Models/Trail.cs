@@ -8,11 +8,11 @@ namespace lostinthewoods.Models
         [Required(ErrorMessage="Enter name for the trail")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Please don't forget to give us description")]
         [MinLength(10, ErrorMessage = "Description should be more than 10")]
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Forgot?")]
         [Range(0, double.MaxValue, ErrorMessage = "Please enter numeric for length")]
         public double Length { get; set; }
 
@@ -21,12 +21,10 @@ namespace lostinthewoods.Models
         public double ElevationGain { get; set; }
         
         [Required]
-        [RegularExpression("^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$", ErrorMessage="Invalid Longtitude")]
-        public double Longtitude { get; set; }
+        public string Longtitude { get; set; }
 
         [Required]
-        [RegularExpression("^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$")]
-        public double Latitude { get; set; }
+        public string Latitude { get; set; }
 
     }
 }

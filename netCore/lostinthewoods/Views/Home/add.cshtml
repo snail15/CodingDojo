@@ -1,0 +1,53 @@
+@model lostinthewoods.Models.Trail
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <h3>Add A Trail</h3>
+        <a asp-controller="Home" asp-action="Index">Go Home</a>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <form action="add" method="POST">
+            <div class="form-group">
+                <label for="name">Trail Name</label>
+                <input asp-for="Name" type="text" name="Name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Trail Name">
+                <small id="nameHelp" class="form-text text-muted">What's the Trail Name? <span asp-validation-for="Name"></span></small>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea asp-for="Description" row="3" name="Description" class="form-control" id="description" placeholder="Description"></textarea>
+                <span asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <span asp-validation-for="Length"></span>
+                <label for="length">Trail Length</label>
+                <input asp-for="Length" type="number" name="Length" class="form-control" aria-describedby="lengthHelp" id="length" placeholder="Length">
+                <small id="lengthHelp" class="form-text text-muted">Give us in Mile</small>
+            </div>
+            <div class="form-group">
+                <span asp-validation-for="ElevationGain"></span>
+                <label for="elevation">Elevation Gain</label>
+                <input asp-for="ElevationGain" type="number" name="ElevationGain" class="form-control" aria-describedby="elevationHelp" id="elevation" placeholder="Elevation">
+                <small id="elevationHelp" class="form-text text-muted">Give us in Feet</small>
+            </div>
+            <div class="form-group">
+                <span asp-validation-for="Longtitude"></span>
+                <label for="longtitude">Longtitude</label>
+                <input asp-for"Longtitude" type="text" name="Longtitude" class="form-control" aria-describedby="longtitudeHelp" id="longtitude" placeholder="Longtitude">
+                <small id="longtitudeHelp" class="form-text text-muted">Yes it is annoying</small>
+            </div>
+            <div class="form-group">
+                <span asp-validation-for="Latitude"></span>
+                <label for="latitude">Latitude</label>
+                <input asp-for="Latitude" type="text" name="Latitude" class="form-control" aria-describedby="latitudeHelp" id="latitude" placeholder="Latitude">
+                <small id="latitudeHelp" class="form-text text-muted">Yes it is annoying</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
