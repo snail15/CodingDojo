@@ -46,12 +46,22 @@ namespace dojoleague.Factories
                 return dbConnection.Query<Dojo>("SELECT * FROM dojos");
             }
         }
-        public Dojo FindByID(int id)
+        public Dojo FindByID(long id)
         {
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                return dbConnection.Query<Dojo>("SELECT * FROM dojos WHERE id = @Id", new { Id = id }).FirstOrDefault();
+                var query =
+                @"
+                SELECT * FROM dojos WHERE id = @Id;
+                SELECT * FROM ninjas WHERE dojoId = @Id;
+                ";
+                 using (var multi = dbConnection.QueryMultiple(query, new {Id = id}))
+                    {
+                        var dojo = multi.Read<Dojo>().Single();
+                        dojo.Ninjas = multi.Read<Ninja>().ToList();
+                        return dojo;
+                    }
             }
         }
     }

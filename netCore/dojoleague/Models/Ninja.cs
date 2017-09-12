@@ -12,15 +12,13 @@ namespace dojoleague.Models {
         public string Name {get; set;}
 
         [Range(1,11, ErrorMessage="Must be between 1 and 10")]
-        public int Level {get; set;}
+        public string Level {get; set;}
 
-        [Required]
         public Dojo Dojo {get; set;}
 
+        public string DojoId {get; set;}
+
         public string Description {get; set;}
-
-
-
 
     }
 }
