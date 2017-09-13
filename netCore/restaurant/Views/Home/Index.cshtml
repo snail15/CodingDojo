@@ -1,9 +1,43 @@
-@{
-    ViewData["Title"] = "Home Page";
-}
-
-@{
-    foreach(var review in ViewBag.Reviews){
-        <h1>@review.Star</h1>
-    }
-}
+@{ ViewData["Title"] = "Home Page"; }
+@model restaurant.Models.Review
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <h3>Write a new Review</h3>
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="restaurant">Restaurant Name</label>
+                <input asp-for="RestaurantName" name="restaurantname" type="text" aria-describedby="nameHelp" class="form-control" id="restaurant" placeholder="McDonald's">
+                <small id="nameHelp" class="form-text text-muted"><span asp-validation-for="RestaurantName"></span></small>
+            </div>
+            <div class="form-group">
+                <label for="reviewername">Your Name</label>
+                <input asp-for="ReviewerName" name="name" aria-describedby="userHelp" type="text" class="form-control" id="reviewername" placeholder="Name">
+                <small id="userHelp" class="form-text text-muted"><span asp-validation-for="ReviewerName"></span></small>
+            </div>
+             <div class="form-group">
+                <label for="review">Review</label>
+                <textarea asp-for="Description" name="review" aria-describedby="reviewHelp" class="form-control" id="review" rows="3"></textarea>
+                <small id="reviewHelp" class="form-text text-muted"><span asp-validation-for="Description"></span></small>
+            </div>
+            <div class="form-group">
+                <label for="date">Date of Viit</label>
+                <input asp-for="Date" name="date" aria-describedby="dateHelp" type="date" class="form-control" id="date">
+                <small id="dateHelp" class="form-text text-muted"><span asp-validation-for="Date"></span></small>
+            </div>
+            <div class="form-group">
+                <label for="star">Star</label>
+                <select asp-for="Star" name="star" class="form-control" id="star">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="col-sm-3"></div>
+</div>

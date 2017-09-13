@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace restaurant.Validators
 {
@@ -13,7 +14,7 @@ namespace restaurant.Validators
         protected override ValidationResult IsValid(object objValue,
                                                        ValidationContext validationContext)
         {
-            var dateValue = objValue as DateTime? ?? new DateTime();
+            DateTime dateValue = (DateTime)objValue;
 
             //alter this as needed. I am doing the date comparison if the value is not null
 
