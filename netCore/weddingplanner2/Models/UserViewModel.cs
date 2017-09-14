@@ -14,7 +14,7 @@ namespace weddingplanner2.Models
         public string Email {get; set;}
 
         [Required]
-        [MinLength(4, ErrorMessage="At least 4 chars")]
+        [MinLength(8, ErrorMessage="At least 8 chars")]
         [DataType(DataType.Password)]
         public string Password { get; set;}
 

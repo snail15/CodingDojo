@@ -40,7 +40,8 @@ namespace weddingplanner2.Controllers
                 newUser.Password = hasher.HashPassword(newUser, model.Password);
                 context.Add(newUser);
                 context.SaveChanges();
-                return View("success");
+                HttpContext.Session.SetInt32("currentUserId", newUser.Id);
+                return RedirectToAction("DashBoard");
             } else {
                 return View(model);
             }
@@ -63,13 +64,20 @@ namespace weddingplanner2.Controllers
             } else{
                 PasswordHasher<User> hasher = new PasswordHasher<User>();
                 if(hasher.VerifyHashedPassword(loginuser, loginuser.Password,Password) != 0){
-                    return View("success");
+                    HttpContext.Session.SetInt32("currentUserId", loginuser.Id);
+                    return RedirectToAction("DashBoard");
                 } else {
                     errors.Add("Invalid Password");
                     ViewBag.Errors = errors;
                     return View();
                 }
             }
+        }
+
+        [HttpGet]
+        [Route("dashboard")]
+        public IActionResult DashBoard(){
+            return View();
         }
 
 
