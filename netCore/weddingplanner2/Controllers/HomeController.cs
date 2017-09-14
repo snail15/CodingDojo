@@ -77,9 +77,17 @@ namespace weddingplanner2.Controllers
         [HttpGet]
         [Route("dashboard")]
         public IActionResult DashBoard(){
+            int? userId = HttpContext.Session.GetInt32("currentUserId");
+            User currentUser = context.Users.SingleOrDefault(user => user.Id == userId);
+            ViewBag.User = currentUser;
             return View();
         }
 
+        [HttpGet]
+        [Route("create")]
+        public IActionResult Create(){
+            return View();
+        }
 
     }
 }
