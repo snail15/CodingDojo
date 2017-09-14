@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using weddingplanner2.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Linq;
 
 namespace weddingplanner2.Controllers
 {
@@ -48,6 +49,27 @@ namespace weddingplanner2.Controllers
         [Route("login")]
         public IActionResult Login(){
             return View();
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public IActionResult Login(string Email, string Password){
+            User loginuser = context.Users.SingleOrDefault(user => user.Email == Email);
+            List<string> errors = new List<string>();
+            if(loginuser == null){
+                errors.Add("Invalid Email");
+                ViewBag.Errors = errors;
+                return View();
+            } else{
+                PasswordHasher<User> hasher = new PasswordHasher<User>();
+                if(hasher.VerifyHashedPassword(loginuser, loginuser.Password,Password) != 0){
+                    return View("success");
+                } else {
+                    errors.Add("Invalid Password");
+                    ViewBag.Errors = errors;
+                    return View();
+                }
+            }
         }
 
 
