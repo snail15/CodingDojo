@@ -4,25 +4,23 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace restaurant.Validators
 {
-    public class FutureDate : ValidationAttribute
+     public class FutureDateAttribute : ValidationAttribute
     {
-        public override string FormatErrorMessage(string name)
+       
+        public FutureDateAttribute()
         {
-            return "You can't be from the future";
         }
 
-        protected override ValidationResult IsValid(object objValue,
-                                                       ValidationContext validationContext)
+        public override bool IsValid(object value)
         {
-            DateTime dateValue = (DateTime)objValue;
-
-            //alter this as needed. I am doing the date comparison if the value is not null
-
-            if (dateValue.Date > DateTime.Now.Date)
+            var dt = (DateTime)value;
+            System.Console.WriteLine("--------I am here-----------*********");
+            if(dt.Date > DateTime.Now.Date)
             {
-                return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+                return false;
             }
-            return ValidationResult.Success;
+            return true;
         }
     }
+  
 }

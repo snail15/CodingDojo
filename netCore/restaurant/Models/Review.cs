@@ -16,7 +16,7 @@ namespace restaurant.Models
         [Required(ErrorMessage="Aren't you here to leave a review??")]
         public string Description {get; set;}
 
-        [FutureDate]
+        [FutureDate(ErrorMessage="You can't be from the future")]
         [Required(ErrorMessage="You need a date")]
         public DateTime Date { get; set; }
 

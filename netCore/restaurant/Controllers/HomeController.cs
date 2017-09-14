@@ -28,7 +28,7 @@ namespace restaurant.Controllers
         [HttpPost]
         [Route("")]
         public IActionResult Index(string restaurantname, string name, string date, string review, string star){
-
+    
             DateTime convertedDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
             System.Console.WriteLine(convertedDate);
             Review createdReview = new Review {
