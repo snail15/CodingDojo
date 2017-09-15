@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using weddingplanner2.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace weddingplanner2.Controllers
 {
@@ -78,9 +79,29 @@ namespace weddingplanner2.Controllers
         [Route("dashboard")]
         public IActionResult DashBoard(){
             int? userId = HttpContext.Session.GetInt32("currentUserId");
-            User currentUser = context.Users.SingleOrDefault(user => user.Id == userId);
+            User currentUser = context.Users.Include(u => u.Rsvps).ThenInclude(r => r.Wedding).SingleOrDefault(user => user.Id == userId);
+            List<int> attendingWeddingIds = new List<int>();
+            foreach(var rsvp in currentUser.Rsvps){
+                System.Console.WriteLine("***********************");
+                System.Console.WriteLine(rsvp.Wedding.Name);
+                System.Console.WriteLine("***********************");
+                attendingWeddingIds.Add(rsvp.WeddingId);
+            }
+            ViewBag.AttendingWeddings = attendingWeddingIds;
+            foreach(var id in attendingWeddingIds){
+                System.Console.WriteLine("***********************");
+                System.Console.WriteLine(id);
+                System.Console.WriteLine("***********************");
+            }
             ViewBag.User = currentUser;
-            List<Wedding> allWeddings = context.Weddings.ToList();
+            List<Wedding> allWeddings = context.Weddings.Include(w => w.Guests).ThenInclude(r => r.User).ToList();
+            foreach(var wedding in allWeddings){
+                foreach(var guest in wedding.Guests){
+                System.Console.WriteLine("***********************");
+                System.Console.WriteLine(guest.User.Name);
+                System.Console.WriteLine("***********************");
+                }
+            }
             ViewBag.Weddings = allWeddings;
             return View();
         }
@@ -115,10 +136,33 @@ namespace weddingplanner2.Controllers
         }
 
         [HttpGet]
-        [Route("rsvp")]
-        public IActionResult Rsvp(){
+        [Route("rsvp/{id}")]
+        public IActionResult Rsvp(string id){
+            int? userId = HttpContext.Session.GetInt32("currentUserId");
+            int weddingId = Int32.Parse(id);
+            Wedding attendingWedding = context.Weddings.SingleOrDefault(w => w.Id == weddingId);
+            User currentUser = context.Users.SingleOrDefault(user => user.Id == userId);
+            Rsvp newRsvp = new Rsvp{
+                UserId = currentUser.Id,
+                WeddingId = attendingWedding.Id
+            };
+            currentUser.Rsvps.Add(newRsvp);
+            context.Add(newRsvp);
+            context.SaveChanges();
             return RedirectToAction("DashBoard");
         }
+
+        [HttpGet]
+        [Route("unrsvp/{id}")]
+        public IActionResult UnRsvp(string id){
+            int? userId = HttpContext.Session.GetInt32("currentUserId");
+            int weddingId = Int32.Parse(id);
+            Rsvp deletedRsvp = context.Rsvps.SingleOrDefault(rsvp => rsvp.WeddingId == weddingId);
+            context.Rsvps.Remove(deletedRsvp);
+            context.SaveChanges();
+            return RedirectToAction("DashBoard");
+        }
+
 
     }
 }

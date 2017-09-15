@@ -16,6 +16,7 @@
       <th>Couple</th>
       <th>Date</th>
       <th>Location</th>
+      <th>Guest Number</th>
       <th>Do you care enough to attend?</th>
     </tr>
   </thead>
@@ -27,7 +28,13 @@
                 <td>@wedding.Name</td>
                 <td>@wedding.Date</td>
                 <td>@wedding.Location</td>
-                <td><a asp-controller="Home" asp-action="Rsvp">I like them</a></td>
+                <td>@wedding.Guests.Count</td>
+                @if(ViewBag.AttendingWeddings.Contains(wedding.Id)){
+                    <td><a asp-controller="Home" asp-action="UnRsvp" asp-route-id="@wedding.Id">I hate them</a></td>
+                }else {
+                    <td><a asp-controller="Home" asp-action="Rsvp" asp-route-id="@wedding.Id">I like them</a></td>
+                }
+        
             </tr>
           }
       }
