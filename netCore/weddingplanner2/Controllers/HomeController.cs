@@ -80,6 +80,8 @@ namespace weddingplanner2.Controllers
             int? userId = HttpContext.Session.GetInt32("currentUserId");
             User currentUser = context.Users.SingleOrDefault(user => user.Id == userId);
             ViewBag.User = currentUser;
+            List<Wedding> allWeddings = context.Weddings.ToList();
+            ViewBag.Weddings = allWeddings;
             return View();
         }
 
@@ -110,6 +112,12 @@ namespace weddingplanner2.Controllers
         public IActionResult Destroy(){
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [Route("rsvp")]
+        public IActionResult Rsvp(){
+            return RedirectToAction("DashBoard");
         }
 
     }

@@ -9,7 +9,29 @@
 <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
-        
+        <table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Couple</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Do you care enough to attend?</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+          foreach(var wedding in ViewBag.Weddings){
+            <tr>
+                <th scope="row">@wedding.Id</th>
+                <td>@wedding.Name</td>
+                <td>@wedding.Date</td>
+                <td>@wedding.Location</td>
+                <td><a asp-controller="Home" asp-action="Rsvp">I like them</a></td>
+            </tr>
+          }
+      }
+</table>
     </div>
     <div class="col-sm-1"></div>
 </div>
