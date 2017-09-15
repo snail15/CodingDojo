@@ -89,5 +89,28 @@ namespace weddingplanner2.Controllers
             return View();
         }
 
+        [HttpPost]
+        [Route("create")]
+        public IActionResult Create(string nameone, string nametwo, string date, string location){
+            Wedding newWedding = new Wedding {
+                Name = nameone + " & " + nametwo,
+                Location = location,
+                Date = date
+                
+            };
+            User createdUser = context.Users.SingleOrDefault(user => user.Id == HttpContext.Session.GetInt32("currentUserId"));
+            context.Add(newWedding);
+            createdUser.WeddingId = newWedding.Id;
+            context.SaveChanges();
+            return RedirectToAction("DashBoard");
+        }
+
+        [HttpGet]
+        [Route("logout")]
+        public IActionResult Destroy(){
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
+        }
+
     }
 }
