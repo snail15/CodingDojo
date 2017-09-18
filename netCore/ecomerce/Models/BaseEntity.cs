@@ -1,7 +1,7 @@
 using System;
-namespace ecomerce.Models;
+namespace ecomerce.Models
 {
     public abstract class BaseEntity {
-        
+
     }
 }
