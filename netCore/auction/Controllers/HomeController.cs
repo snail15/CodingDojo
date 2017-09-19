@@ -79,7 +79,7 @@ namespace auction.Controllers
         public IActionResult Dashboard(){
             int? userId = HttpContext.Session.GetInt32("currentUserId");
             User currentUser = context.Users.SingleOrDefault(u => u.Id == (int)userId);
-            List<Auction> allAuctions = context.Auctions.ToList();
+            List<Auction> allAuctions = context.Auctions.OrderBy(a => a.EndDate).ToList();
             ViewBag.User = currentUser;
             ViewBag.Auctions = allAuctions;
             Dictionary<int, int> remainingTime = new Dictionary<int, int>();
