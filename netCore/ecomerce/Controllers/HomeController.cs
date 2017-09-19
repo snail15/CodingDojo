@@ -117,6 +117,14 @@ namespace ecomerce.Controllers
                     CreatedAt = DateTime.Now,
                     Quantity = model.Quantity
                 };
+                Product soldProduct = context.Products.SingleOrDefault(p => p.Id == model.ProductId);
+                if(soldProduct.Stock < model.Quantity){
+                    ViewBag.Error = "Not enough inventory!";
+                    ViewBag.Customers = context.Customers.Include(c => c.Orders).ThenInclude(o => o.Product).ToList();
+                    ViewBag.Products = context.Products.ToList();
+                    return View();
+                }
+                soldProduct.Stock -= model.Quantity;
                 context.Add(newOrder);
                 context.SaveChanges();
                 return RedirectToAction("Orders");

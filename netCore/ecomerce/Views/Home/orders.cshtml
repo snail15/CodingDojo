@@ -39,6 +39,11 @@
                 <label for="quantity">Quantity</label>
                 <input asp-for="Quantity" name="Quantity" type="number" aria-describedby="quantityHelp" class="form-control" id="quantity" placeholder="At least 1">
                 <small id="quantityHelp" class="form-text text-muted"><span class="validation-text" asp-validation-for="Quantity"></span></small>
+                 @{
+                        if(ViewBag.Error != null){
+                             <small id="quantityHelp" class="error-message form-text text-muted">@ViewBag.Error</small>
+                        }
+                    }
             </div>
             <button type="submit" class="btn btn-primary">Place Order</button>
         </form>
@@ -59,16 +64,17 @@
             </thead>
             <tbody>
                 @{ foreach(var customer in ViewBag.Customers){
+                    foreach(var order in customer.Orders){
 
                 <tr>
-                    <td>@customer.Name</td>
-                    @foreach(var order in @customer){
-
+                    <td>@order.Customer.Name</td>
                     <td>@order.Product.Name</td>
                     <td>@order.Quantity</td>
                     <td>@order.CreatedAt</td>
-                    }
+
                 </tr>
+                    }
+
                 } }
 
         </table>
