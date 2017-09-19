@@ -21,3 +21,21 @@
 .validation-text {
     font-size: 60%;
 }
+
+.card-img-top {
+    width: 100%;
+}
+
+.card-title {
+    font-size: 120%;
+}
+.card-text {
+    font-size: 65%;
+}
+.stock-text {
+    color: gray;
+}
+
+.error-message {
+    font-size: 50%;
+}

@@ -1,0 +1,77 @@
+@{ ViewData["Title"] = "Order Page"; } 
+@model ecomerce.Models.OrderViewModel
+<div class="row">
+    <div class="col-sm-12">
+        <ul class="nav">
+            <li><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+            <li><a asp-controller="Home" asp-action="Products">Products</a></li>
+            <li><a style="color:black" asp-controller="Home" asp-action="Orders">Orders</a></li>
+            <li><a asp-controller="Home" asp-action="Customers">Customers</a></li>
+            <li><a asp-controller="Home" asp-action="Index">Settings</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <h3>Add a new order</h3>
+        <form asp-controller="Home" asp-action="Orders" method="POST">
+            <div class="form-group">
+                <label for="customername">Customer Name</label>
+                <select asp-for="CustomerId" id="customername" class="form-control">
+                    @{
+                        foreach(var customer in ViewBag.Customers){
+                            <option value="@customer.Id">@customer.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="productname">Product</label>
+                <select asp-for="ProductId" id="productname" class="form-control">
+                    @{
+                        foreach(var product in ViewBag.Products){
+                            <option value="@product.Id">@product.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input asp-for="Quantity" name="Quantity" type="number" aria-describedby="quantityHelp" class="form-control" id="quantity" placeholder="At least 1">
+                <small id="quantityHelp" class="form-text text-muted"><span class="validation-text" asp-validation-for="Quantity"></span></small>
+            </div>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ foreach(var customer in ViewBag.Customers){
+
+                <tr>
+                    <td>@customer.Name</td>
+                    @foreach(var order in @customer){
+
+                    <td>@order.Product.Name</td>
+                    <td>@order.Quantity</td>
+                    <td>@order.CreatedAt</td>
+                    }
+                </tr>
+                } }
+
+        </table>
+    </div>
+    <div class="col-sm-1"></div>
+</div>

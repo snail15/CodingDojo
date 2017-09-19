@@ -1,0 +1,72 @@
+@{ ViewData["Title"] = "Customers Page"; } @model ecomerce.Models.ProductViewModel
+<div class="row">
+    <div class="col-sm-12">
+        <ul class="nav">
+            <li><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+            <li><a style="color:black" asp-controller="Home" asp-action="Procuts">Products</a></li>
+            <li><a asp-controller="Home" asp-action="Orders">Orders</a></li>
+            <li><a asp-controller="Home" asp-action="Customers">Customers</a></li>
+            <li><a asp-controller="Home" asp-action="Index">Settings</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="row">
+            <div class="col-sm-12">
+                <form>
+                    <div class="form-group">
+                        <input name="productName" type="text" aria-describedby="nameHelp" class="form-control" id="searchProduct" placeholder="Search Product">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Add a new product</h2>
+                <form asp-controller="Home" asp-action="Products" method="POST">
+                    <div class="form-group">
+                        <label for="product">Name</label>
+                        <input asp-for="Name" name="Name" type="text" aria-describedby="nameHelp" class="form-control" id="product" placeholder="Death Star">
+                        <small id="nameHelp" class="form-text text-muted"><span class="validation-text" asp-validation-for="Name"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image(url)</label>
+                        <input asp-for="Image" name="Image" type="text" aria-describedby="imageHelp" class="form-control" id="image" placeholder="http://">
+                        <small id="imageHelp" class="form-text text-muted"><span class="validation-text" asp-validation-for="Image"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea asp-for="Description" name="Description" row="3" aria-describedby="descriptionHelp" class="form-control" id="description"
+                            placeholder="Death Star"></textarea>
+                        <small id="descriptionHelp" class="form-text text-muted"><span class="validation-text" asp-validation-for="Description"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Initial Quantity</label>
+                        <input asp-for="Stock" name="Stock" type="number" aria-describedby="stockHelp" class="form-control" id="quantity" placeholder="More than 0">
+                        <small id="stockHelp" class="form-text text-muted"><span class="validation-text" asp-validation-for="Stock"></span></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div class="row">
+            @{ foreach(var product in ViewBag.Products){
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" src="@product.Image" alt="product image">
+                    <div class="card-body">
+                        <h4 class="card-title">@product.Name</h4>
+                        <p class="card-text">@product.Description</p>
+                        <p class="card-text stock-text">Reamining: @product.Stock</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            } }
+        </div>
+    </div>
+</div>

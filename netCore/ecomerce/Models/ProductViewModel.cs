@@ -15,5 +15,9 @@ namespace ecomerce.Models
 
         [Required(ErrorMessage="Customer needs some info on this product??")]
         public string Description {get; set;}
+
+        [Required(ErrorMessage="Well, how many of them??")]
+        [Range(1, Int32.MaxValue, ErrorMessage="Give us at least 1 of them")]
+        public int Stock {get; set;}
     }
 }
