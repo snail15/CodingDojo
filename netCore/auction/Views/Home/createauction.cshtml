@@ -1,0 +1,48 @@
+@model auction.Models.AuctionViewModel
+@if(@ViewBag.User == null){
+    <h1>You are not logged in</h1>
+     <a asp-controller="Home" asp-action="Index"><h2>Get out of here</h2></a>
+} else {
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>New Auction</h2>
+                <a asp-controller="Home" asp-action="Dashboard">Go to main</a>
+                <a asp-controller="Home" asp-action="Logout">Logout</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form asp-controller="Home" asp-action="CreateAuction" method="POST">
+                    <div class="form-group">
+                        <label for="productname">Product Name</label>
+                        <input asp-for="ProductName" name="productname" type="text" aria-describedby="nameHelp" class="form-control" id="productname"
+                            placeholder="e.g. Death Star">
+                        <small id="nameHelp" class="form-text text-muted"><span asp-validation-for="ProductName"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea row="3" asp-for="Description" name="description" aria-describedby="userHelp" type="text" class="form-control" id="description"
+                            placeholder="You can own the universe with Death Star"></textarea>
+                        <small id="userHelp" class="form-text text-muted"><span asp-validation-for="Description"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="bid">Starting Bid</label>
+                        <input asp-for="Bid" name="bid" aria-describedby="PasswordHelp" class="form-control" id="bid" type="number" placeholder="greater than 0">
+                        <small id="PasswordHelp" class="form-text text-muted"><span asp-validation-for="Bid"></span></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input asp-for="EndDate" name="EndDate" aria-describedby="dateHelp" class="form-control" id="date" type="text">
+                        <small id="dateHelp" class="form-text text-muted"><span asp-validation-for="EndDate"></span></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Auction</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+}
