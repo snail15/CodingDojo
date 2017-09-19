@@ -79,14 +79,25 @@ namespace auction.Controllers
         public IActionResult Dashboard(){
             int? userId = HttpContext.Session.GetInt32("currentUserId");
             User currentUser = context.Users.SingleOrDefault(u => u.Id == (int)userId);
-            List<Auction> allAuctions = context.Auctions.OrderBy(a => a.EndDate).ToList();
-            ViewBag.User = currentUser;
-            ViewBag.Auctions = allAuctions;
-            Dictionary<int, int> remainingTime = new Dictionary<int, int>();
+
             DateTime now = DateTime.Now;
+            List<Auction> allAuctions = context.Auctions.OrderBy(a => a.EndDate).Where(auc => auc.EndDate > now).ToList();
+            List<Auction> expiredAuctions = context.Auctions.Where(a => a.EndDate <= now).ToList();
+            foreach(var auction in expiredAuctions){
+                User highestBidder = context.Users.SingleOrDefault(u => u.FirstName == auction.HighestBidder);
+                User createdUser = context.Users.SingleOrDefault(u => u.FirstName + " " + u.LastName == auction.CreatedUser);
+                highestBidder.Wallet -= auction.Bid;
+                createdUser.Wallet += auction.Bid;
+            }
+            context.SaveChanges();
+
+            Dictionary<int, int> remainingTime = new Dictionary<int, int>();
             foreach(var auction in allAuctions){
                 remainingTime[auction.Id] = (auction.EndDate - now).Days;
             }
+            
+            ViewBag.User = currentUser;
+            ViewBag.Auctions = allAuctions;
             ViewBag.Reamining = remainingTime;
             return View();
         }
@@ -94,6 +105,9 @@ namespace auction.Controllers
         [HttpGet]
         [Route("/createauction")]
         public IActionResult CreateAuction(){
+            int? userId = HttpContext.Session.GetInt32("currentUserId");
+            User currentUser = context.Users.SingleOrDefault(u => u.Id == (int)userId);
+            ViewBag.User = currentUser;
             return View();
         }
         [HttpPost]
